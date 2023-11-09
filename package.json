@@ -41,7 +41,10 @@
     "typescript": "^5.2.2"
   },
   "lint-staged": {
-    "*.(tsx|ts)": "eslint --cache --fix",
-    "*": "prettier --write --ignore-unknown"
+    "*.(tsx|ts)": [
+      "prettier --write --ignore-unknown",
+      "eslint --cache --fix",
+      "git add"
+    ]
   }
 }
