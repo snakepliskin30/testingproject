@@ -1,0 +1,29 @@
+1. create a react project using next bootstrap
+	npx create-next-app app-name --ts
+	no eslint if asked, it will be installed separately
+2. installing ts-jest
+	go their npm repo and then click the link homepage
+	when navigated to the homepage, click get started and in the left panel click installation
+	npm install --save-dev jest typescript ts-jest @types/jest
+3. go further down in the homepage you'll see instruction how to initialize your project with ts-jest
+	npx ts-jest config:init
+	this will create jest.config.js file
+4. create an 'src' folder and move the 'pages' folder inside it
+5. create components folder and inside it create simple ts file with simple function
+	inside the same folder, create {1st_file_name}.spec.ts for your testing
+6. perform some testing on your simple function and also some testing about types
+7. install react testing library
+	go to the documentation, google 'react testing library'
+	npm install --save-dev @testing-library/react @testing-library/user-event @testing-library/dom @testing-library/jest-dom
+8. once installed, create a simple component and it's testing file and see that it shows an error
+9. to fix the error
+	at the root, create tsconfig.jest.json and modify as in the project file
+	this tsconfig.jest.json will  not be used yet until you instruc jest to use it
+		modify jest.config.js as in the project file
+	this will produce a different error this is because in jest.confi.js, the testenvironment=node needs to be changed
+		change it to 'jsdom' after installing pagckage 'jest-environment-jsdom'
+		this way the test execution will be executed in an emulated environment
+10. Now functions like expect(element).toBeInTheDocument() will not be recognized yet
+	this is not ootb included in the jest functions but extended by jest-dom
+	what you need to do is instruct jest by updating 'jest-config.js' and add setupFilesAfterEnv: ['./src/setup-jest.ts']
+		next is you need to add that file to the correct location and put 'import '@testing-library/jest-dom'
