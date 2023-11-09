@@ -1,6 +1,6 @@
 1. create a react project using next bootstrap
 	npx create-next-app app-name --ts
-	no eslint if asked, it will be installed separately
+	install eslint if asked
 2. installing ts-jest
 	go their npm repo and then click the link homepage
 	when navigated to the homepage, click get started and in the left panel click installation
@@ -27,3 +27,12 @@
 	this is not ootb included in the jest functions but extended by jest-dom
 	what you need to do is instruct jest by updating 'jest-config.js' and add setupFilesAfterEnv: ['./src/setup-jest.ts']
 		next is you need to add that file to the correct location and put 'import '@testing-library/jest-dom'
+11. Istall and configure eslint if you have selected no on the option at the start
+	make sure the .eslintrc.js is the same as in the project
+	notable changes are adding "project":"./tsconfig.json", "plugin:@typescript-eslint/recommended-requiring-type-checking"
+	update package.json and in the 'lint' script add a parameter '--dir src' since by default next doesn't check the src folder
+12. install eslint-jest
+	add the plugins in the .eslintrc, eslint-plugin-jest, 'plugin:jest/recommended' and 'plugin:jest/style'
+13. install eslint-plugin-testing-library
+	add the plugin in the .eslintrc 'plugin:testing-library/react'
+14. use this video https://www.youtube.com/watch?v=_ssKvmZqSnk as guide on how to install and setup lint-staged and husky
